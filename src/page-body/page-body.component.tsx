@@ -39,13 +39,13 @@ const PageBody = () => {
     return (
         <div className='search-app__body-container'>
             <UploadFile onTextChanged={setText}/>
-                <SearchBox
+            {showSearchBox.showAndFocus && <SearchBox
                     showAndFocus={showSearchBox}
                     onSearchChanged={setSearchString}
                     onPrevClicked={() => setActiveHighlightedIndex(prevState => prevState === 0 ? numOfHighlights - 1 : prevState - 1)}
                     onNextClicked={() => setActiveHighlightedIndex(prevState => prevState + 1 === numOfHighlights ? 0 : prevState + 1)}
                     onSearchCleared={() => setSearchString('')}
-                />
+                />}
             <TextLayout
                 activeHighlightedIndex={activeHighlightedIndex}
                 searchString={searchString}
